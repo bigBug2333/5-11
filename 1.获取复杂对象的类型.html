@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getType(obj) {
+            var ret = Obj.prototype.toString.call(obj);
+            ret = ret.slice(8, -1);
+            return ret;
+        }
+        console.log(getType([]));
+        console.log(getType({}));
+        console.log(getType(new Date()));
+        console.log(getType(11));
+        console.log(getType(window));
+    </script>
+</body>
+</html>

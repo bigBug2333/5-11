@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outer() {
+            var arr = [1, 1];
+            function getTu(n) {
+                if (arr[n]) {
+                    return arr[n];
+                } else {
+                    var temp = getTu(n-1) + getTu(n-2);
+                    arr[n] = temp;
+                    return temp; 
+                }
+            }
+            return getTu;
+        }
+        var fib = outer();
+        console.log(fib(100));
+
+    </script>
+</body>
+</html>

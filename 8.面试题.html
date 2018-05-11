@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+
+<script>
+
+  //打印某个元素的索引
+  var btns = document.querySelectorAll("button");
+
+  //es6的关键字  let
+  for(let i = 0; i < btns.length; i++) {
+    btns[i].onclick = function () {
+      console.log(i);
+    }
+  }
+
+
+
+  //  for(var i = 0; i < btns.length; i++) {
+  //    btns[i].onclick = (function (i) {
+  //      return function () {
+  //        console.log(i);
+  //      };
+  //    })(i);
+  //  }
+
+  //  for(var i = 0; i < btns.length; i++) {
+  //
+  //    (function (i) {
+  //
+  //      btns[i].onclick = function () {
+  //        console.log(i);
+  //      }
+  //
+  //    })(i);
+  //
+  //  }
+  //每隔一秒钟打印一个数字： 0, 1, 2,3,4,5,6,7,8,9,10
+  //setTimeout打印
+
+
+  //1. 使用一个函数（自执行函数）把i的值存起来
+  for (var i = 1; i <= 10; i++) {
+
+//      setTimeout((function (i) {
+//        return function () {
+//          console.log(i);
+//        }
+//      })(i), i * 1000);
+
+(function (i) {
+  setTimeout(function () {
+    console.log(i);
+  }, i * 1000);
+})(i);
+
+}
+    </script>
+</body>
+</html>

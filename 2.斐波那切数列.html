@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          //求1-100的所有数的和：
+  //getSum(n) = getSum(n -1 ) + n;
+  //getSum(100)
+  //getSum(100) = getSum(99) + 100
+  //getSum(99) = getSum(98) + 99;
+  //getSum(3) = getSum(2) + 3;
+  //getSum(2) = 3
+  //getSum(1) = 1;
+
+  //  function getSum(n) {
+  //    if(n === 1){
+  //      return 1;
+  //    }
+  //    return getSum(n-1) + n;
+  //  }
+  //
+  //  console.log(getSum(100));
+
+
+  //兔子数：
+  // 0 1 2 3 4 5 6
+  // 1 1 2 3 5 8 13 21 34  55 89 144
+
+  //getTu(n) = getTu(n-1) + getTu(n-2)
+
+
+  //缓存解决：  getTu(12) getTu(11)
+
+  var arr = [];
+
+var count = 0;
+function getTu(n) {
+  count++;
+  if (n == 0 || n == 1) {
+    return 1;
+  }
+
+  //每次计算兔子数的时候，考虑一下，如果把结果算出来，把计算结果存储到数组中
+  //下次计算的时候，先看下数组中有没有值，如果有，直接用，如果没有，计算，算完存到数组中
+  if (arr[n]) {
+    //数组中已经存在了这个数
+    return arr[n];
+  } else {
+    //如果没有，计算这个月的兔子数，把结果存储到数组，方便下次使用
+    var result = getTu(n - 1) + getTu(n - 2);
+    arr[n] = result;
+    return result;
+  }
+
+
+}
+
+
+console.log(getTu(2));
+console.log(count);
+
+
+    </script>
+</body>
+</html>
